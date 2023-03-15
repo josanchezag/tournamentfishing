@@ -19,6 +19,7 @@ public class PersonaRepositoryImpl implements IPerson {
     @Override
     public List<Person> getOlder18(List<Person> p) {
         return p.stream()
+                .parallel()
                 .filter(x-> utlp.getAge(x)>18)
                 .collect(Collectors.toList());
     }
